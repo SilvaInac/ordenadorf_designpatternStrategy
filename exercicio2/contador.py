@@ -9,7 +9,7 @@ class ContadorPalavras(Observador):
     def update(self):
         res = len(self.frase.split())
         print ("Numero total de palavras : " +  str(res)) 
-        return res
+        return int(res)
 
 class ContadorPalavrasCaracteresPares(Observador):
     

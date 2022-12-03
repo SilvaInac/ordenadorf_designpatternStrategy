@@ -27,11 +27,6 @@ class Testing(unittest.TestCase):
 
         self.assertIsNotNone(listaA)
 
-    def test_Random(self):
-        listaOrdenadaA = Ordenador(Random)
-        listaA = listaOrdenadaA.ordenar([7,6,5,4,3,2,1])
-
-        self.assertEqual(listaA,[7,6,5,4,3,2,1]or[1,2,3,4,5,6,7])
 
 if __name__ == '__main__':
     unittest.main()
