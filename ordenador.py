@@ -10,7 +10,7 @@ class Strategy(ABC):
         pass
     
 class Crescente(Strategy):
-    def selection(self,lista) -> str:
+    def selection(self,lista = None) -> str:
         self.newList  = []
         for i in lista:
             self.newList.append(i)
@@ -19,7 +19,7 @@ class Crescente(Strategy):
         return (self.newList)
 
 class Decrescente(Strategy):
-    def selection(self,lista) -> str:
+    def selection(self,lista = None) -> str:
         self.newList  = []
         for i in lista:
             self.newList.append(i)
@@ -29,16 +29,23 @@ class Decrescente(Strategy):
 
 
 class Random(Strategy):
-    def __init__(self,lista: list) -> None:
-        if lista is not None:
-                self.listData = lista
+    def selection(self,lista = None) -> str:
+        self.newList  = []
 
-    def selection(self) -> str:
         options = [Crescente, Decrescente]
         algoritmo =  random.choice(options)
 
+        for i in lista:
+            self.newList.append(i)
+
         if(algoritmo == Crescente):
-            return self.listData.sort()
+            self.newList.sort()
+
+        elif(algoritmo == Decrescente):
+            self.newList.sort(reverse=1)
+
+
+        return self.newList
 
 
 class Ordenador:
@@ -52,20 +59,6 @@ class Ordenador:
         else:
             self.strategy = Random()
     
-    def ordenar(self,lista) -> None:
+    def ordenar(self,lista = None) -> None:
         listaOrdenada = self.strategy.selection(self,lista)
         return listaOrdenada
-
-
-listaDesordenada = [5,1,3,2,4,7,8,9,6]
-
-listaOrdenadaA = Ordenador(Crescente)
-listaOrdenadaB = Ordenador(Decrescente)
-listaOrdenadaC = Ordenador(Random)
-
-listaA = listaOrdenadaA.ordenar(listaDesordenada)
-print("Crescente:",listaA)
-listaB = listaOrdenadaB.ordenar(listaDesordenada)
-print("Decrescente:",listaB)
-listaC = listaOrdenadaB.ordenar(listaDesordenada)
-print("Ordem Randomica:",listaC)
