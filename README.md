@@ -1,0 +1,1 @@
+# ordenadorf_designpatternStrategy
