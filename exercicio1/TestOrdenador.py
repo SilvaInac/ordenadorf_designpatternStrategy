@@ -15,11 +15,6 @@ class Testing(unittest.TestCase):
 
         self.assertEqual(listaA, [7,6,5,4,3,2,1])
 
-    def test_decrescente(self):
-        listaOrdenadaA = Ordenador(Decrescente)
-        listaA = listaOrdenadaA.ordenar([2,3,5,1,4,7,6])
-
-        self.assertEqual(listaA, [7,6,5,4,3,2,1])
 
     def test_None(self):
         listaOrdenadaA = Ordenador(Crescente)
